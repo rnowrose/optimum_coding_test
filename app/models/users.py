@@ -2,7 +2,9 @@ from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, Field
 
-class Users(BaseModel):
+from app.models.base_model import BaseSchema
+
+class Users(BaseSchema):
     id: Optional[str] = None
     first_name: str
     last_name: str

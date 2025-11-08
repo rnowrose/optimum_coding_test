@@ -4,5 +4,5 @@ class TestMovieService:
     def test_get_trending_movies(self):
         movies = get_trending_movies()
         print(movies)
-      
+
 

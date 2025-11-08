@@ -1,7 +1,9 @@
 from typing import List, Optional
 from pydantic import BaseModel
 
-class ImageInfo(BaseModel):
+from app.models.base_model import BaseSchema
+
+class ImageInfo(BaseSchema):
     file_path: str
     width: int
     height: int
@@ -10,7 +12,7 @@ class ImageInfo(BaseModel):
     vote_average: float
     vote_count: int
 
-class MovieImages(BaseModel):
+class MovieImages(BaseSchema):
     id: int
     backdrops: List[ImageInfo]
     posters: List[ImageInfo]

@@ -1,5 +1,5 @@
 import traceback
-from app import data
+import pandas as pd
 from app.data.tmdb_api.movies import fetch_trending_tmdb_data, fetch_movie_details, fetch_movie_images
 from app.data.config import from_csv, to_csv
 from app.models import Users, Movies
@@ -27,7 +27,13 @@ def get_movie_details(movie_id: int) -> Movies:
             movie_dict['production_countries'] = parse_string_to_list(movie_dict.get('production_countries'))
 
             movie_dict['production_companies'] = [
-                ProductionCompany(**pc) for pc in production_company_data
+                ProductionCompany(
+                    id=pc['id'],
+                    name=pc['name'],
+                    logo=pc['logo'] if pd.notna(pc['logo']) else None,  # ← Convert NaN to None
+                    origin_country=pc['origin_country'] if pd.notna(pc['origin_country']) else None,
+                    movie_id=pc['movie_id']
+                ) for pc in production_company_data
             ]
             
             return Movies(**movie_dict)        

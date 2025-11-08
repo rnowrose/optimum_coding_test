@@ -2,10 +2,11 @@ from datetime import datetime
 from typing import List, Optional
 from pydantic import BaseModel
 
+from app.models.base_model import BaseSchema
 from app.models.production_companies import ProductionCompany
 
 
-class Movies(BaseModel):
+class Movies(BaseSchema):
     id: int
     title: str
     year: int
@@ -21,6 +22,10 @@ class Movies(BaseModel):
     production_countries: List[str]
     overview: str
     
-    
+class TrendingMovies(BaseSchema):
+    id: int
+    title: str
+    year: int
+    poster_path: Optional[str] = None
     
     

@@ -6,8 +6,9 @@ function App() {
   return (
     <div>
       <NavBar />
-      <h1>Optimum Coding Test</h1>
-      <Outlet />
+      <div style={{ padding: '20px' }}>
+        <Outlet />
+      </div>
       </div>
   )
 }
