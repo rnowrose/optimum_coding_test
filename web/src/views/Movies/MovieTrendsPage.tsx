@@ -47,6 +47,7 @@ export default function MovieTrendsPage() {
                         key={movie.id}
                         onClick={() => handleMovieClick(movie.id)}
                         style={{ cursor: 'pointer'}}
+                        data-cy="trend-movie"
                     >
                         <MovieThumbNail
                             title={movie.title}

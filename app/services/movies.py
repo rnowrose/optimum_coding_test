@@ -17,8 +17,7 @@ def get_movie_images(movie_id: int):
 def get_movie_details(movie_id: int) -> Movies:
     try:
         movies_df = from_csv("movies.csv")
-        movie_data = [movie for movie in movies_df if int(movie.get("id")) == movie_id]
-        print(movie_data)
+        movie_data = [movie for movie in movies_df if movie.get("id") == movie_id]
         if movie_data:
             pc_df = from_csv("production_companies.csv")
             production_company_data = [pc for pc in pc_df if pc.get("movie_id") == movie_id]
@@ -53,9 +52,19 @@ def get_movie_details(movie_id: int) -> Movies:
 
 def add_favorites(movie_id: int, user_id: int):
     df = to_csv([{"user_id": user_id, "movie_id": movie_id}], "favorites.csv")
-    return df
+    if df:
+        return 'success'
+    return 'failure'
 
-def user_details(user_id: int) -> Users:
+def is_user_logged_in(user_id: str) -> bool:
+    """Simple check if user has an active token"""
+    users = from_csv("users.csv")
+    for user in users:
+        if user.get('id') == user_id and user.get('token'):
+            return True
+    return False
+
+def user_details(user_id: str) -> Users:
     users = from_csv("users.csv")
     favorites = from_csv("favorites.csv")
     user = users[users["id"] == user_id]

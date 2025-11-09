@@ -1,9 +1,9 @@
-import Button from "@mui/material/Button";
 import type { Movies, ProductionCompany } from "../../domain/Movies";
 import Box from "@mui/material/Box";
 import MovieHeader from "./MovieHeader";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
+import MovieAdditionalDetails from "./MovieAdditionalDetails";
 const IMAGE_URL = import.meta.env.VITE_IMAGE_URL;
 
 export default function MovieDetailsInfo(props) { 
@@ -13,8 +13,10 @@ export default function MovieDetailsInfo(props) {
             <MovieHeader
                 image={`${IMAGE_URL}${props.posterPath}`}
                 title={props.title}
+                genre={props.genre}
                 releaseDate={props.releaseDate}
                 overview={props.overview}
+                tagline={props.tagline}
             />
             <div>
                 <h3>Production Companies:</h3>
@@ -35,7 +37,16 @@ export default function MovieDetailsInfo(props) {
                 </List>
             </div>
         </Box>
-        
+        <Box>
+            <MovieAdditionalDetails 
+                budget={props.budget}
+                revenue={props.revenue}
+                runtime={props.runtime}
+                status={props.status}
+            />
+        </Box>
+
+
         </Box>
     );
 }   

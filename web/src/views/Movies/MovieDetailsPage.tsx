@@ -22,9 +22,8 @@ export default function MovieDetailsPage() {
                 console.error('Error fetching movie details:', error);
             });
     }, [movieId]);
-    console.log(movie);
     return (
-        <div>
+        <div data-cy="movie-details">
             <h1>Movie Details</h1>
             {loading ? (
                 <p>Loading...</p>
@@ -36,6 +35,11 @@ export default function MovieDetailsPage() {
                         overview={movie.overview}
                         releaseDate={movie.releaseDate}
                         productionCompanies={movie.productionCompanies}
+                        genre={movie.genre}
+                        tagline={movie.tagline}
+                        budget={movie.budget}
+                        revenue={movie.revenue}
+                        runtime={movie.runtime}
                     />
                 )
             )}

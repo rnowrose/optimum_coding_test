@@ -1,5 +1,5 @@
 export interface Users {
-    id: number;
+    id: string;
     firstName: string;
     lastName: string;
     email: string;
@@ -13,7 +13,7 @@ export interface Users {
 
 export interface AuthInfo {
     success?: boolean;
-    user_id?: number;
+    user_id?: string;
     token?: string;
     message: string;
 }
@@ -24,4 +24,13 @@ export interface SignUp {
     email: string;
     username: string;
     password: string;
+}
+
+export interface SignUpMessage extends SignUp {
+    message: string
+}
+
+export interface Favorites {
+    userId: string;
+    movieId: number;
 }

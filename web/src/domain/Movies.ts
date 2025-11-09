@@ -10,8 +10,7 @@ export interface Movies {
     releaseDate: string;
     revenue: number;
     runtime: number;
-    status: string;
-    tagLine: string;
+    tagline: string;
     productionCountries: string[];
     overview: string;
 }

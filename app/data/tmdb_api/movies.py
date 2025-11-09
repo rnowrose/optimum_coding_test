@@ -41,7 +41,7 @@ def parse_movie_data(data: dict) -> Movies:
             budget=int(data.get("budget", 0)),
             popularity=float(data.get("popularity", 0)),
             poster_path=data.get("poster_path"),
-            production_companies=parse_production_companies(data.get("production_companies", []), int(data.get("id"))),
+            production_companies=parse_production_companies(data.get("production_companies", []), data.get("id")),
             release_date=datetime.strptime(data.get("release_date"), "%Y-%m-%d") if data.get("release_date") else 0,
             revenue=int(data.get("revenue", 0)),
             runtime=int(data.get("runtime", 0)),
