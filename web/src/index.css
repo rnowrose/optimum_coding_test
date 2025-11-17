@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: #646cff;
-  background-color: #09f3ff;
+ 
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,6 +15,7 @@
 body {
   margin: 0;
   padding: 0;
+   background-color: #f4f9ff;
 }
 a {
   font-weight: 500;

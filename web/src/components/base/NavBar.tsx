@@ -20,7 +20,7 @@ export default function NavBar () {
     };
     return (
         <Box>
-            <AppBar position='static'>
+            <AppBar position='static' color='primary'>
                 <Toolbar>
                  <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Movie App

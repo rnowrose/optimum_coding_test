@@ -14,6 +14,8 @@ export default function MovieThumbNail(props: MovieInfo) {
         <Card sx={{ 
             maxWidth: 300,
             height: '100%',
+            backgroundColor: 'primary.main' , 
+            color: 'primary.contrastText'
         }}>
           <CardMedia
             component="img"
@@ -25,10 +27,10 @@ export default function MovieThumbNail(props: MovieInfo) {
             title="movie image"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: 'bold' }} >
               {props.title}
             </Typography>
-            <Typography sx={{ color: 'text.secondary' }}>
+            <Typography>
               {props.year}
             </Typography>
           </CardContent>

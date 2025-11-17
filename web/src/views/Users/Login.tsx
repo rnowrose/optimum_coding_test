@@ -45,7 +45,13 @@ export default function Login() {
             <CardContent>
                 <Typography variant="h5">Login</Typography>
                 {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
-                <form onSubmit={handleSubmit}>
+                   <Box
+                    component="form"
+                    onSubmit={handleSubmit}
+                    sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' } }}
+                    noValidate
+                    autoComplete="off"
+                    >
                         <TextField 
                             label="Username"
                             variant="outlined" 
@@ -78,7 +84,7 @@ export default function Login() {
                         >
                             {loading ? 'Logging in...' : 'Login'}
                         </Button>
-                </form>
+                </Box>
                 <Typography variant="body2" color="textSecondary" align="center" sx={{ mt: 2 }}>
                         Don't have an account?{' '}
                         <Link 

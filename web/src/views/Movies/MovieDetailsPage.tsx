@@ -3,6 +3,7 @@ import type { Movies } from "../../domain/Movies";
 import { useParams } from "react-router"
 import { getMovieDetails } from "../../api/movie.api";
 import MovieDetailsInfo from "../../components/Movies/MovieDetailsInfo";
+import Box from "@mui/material/Box";
 
 const IMAGE_URL = import.meta.env.VITE_IMAGE_URL;
 
@@ -23,7 +24,7 @@ export default function MovieDetailsPage() {
             });
     }, [movieId]);
     return (
-        <div data-cy="movie-details">
+        <Box data-cy="movie-details">
             <h1>Movie Details</h1>
             {loading ? (
                 <p>Loading...</p>
@@ -43,6 +44,6 @@ export default function MovieDetailsPage() {
                     />
                 )
             )}
-        </div>
+        </Box>
     );
 }
