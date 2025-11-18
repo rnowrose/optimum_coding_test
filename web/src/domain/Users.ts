@@ -14,6 +14,7 @@ export interface Users {
 export interface AuthInfo {
     success?: boolean;
     user_id?: string;
+    full_name?: string;
     token?: string;
     message: string;
 }

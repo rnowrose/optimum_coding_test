@@ -25,6 +25,7 @@ def login(username: str, password: str) -> dict:
                 return {
                     "success": True,
                     "user_id": user['id'],
+                    "full_name": f"{user['first_name']} {user['last_name']}",
                     "token": user['token'],
                     "message": "Login successful"
                 }
